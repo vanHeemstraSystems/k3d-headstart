@@ -2,7 +2,7 @@
 
 Check out what you can do via ```k3d --help``` or check the docs @ k3d.io
 
-## 100 - Try an example workflow
+## 100 - Install the Kubernetes Dashboard and try an example workflow
 
 See [README.md](./100/README.md)
 
