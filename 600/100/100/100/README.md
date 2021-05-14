@@ -128,5 +128,16 @@ Now let's try deploying the Kubernetes Dashboard again, with k3s as a service no
 
 ```
 $ sudo k3s kubectl create -f https://raw.githubusercontent.com/kubernetes/dashboard/${VERSION_KUBE_DASHBOARD}/aio/deploy/recommended.yaml
+sudo: k3s: command not found
+```
+
+Leave off the ```sudo```:
 
 ```
+$ k3s kubectl create -f https://raw.githubusercontent.com/kubernetes/dashboard/${VERSION_KUBE_DASHBOARD}/aio/deploy/recommended.yaml
+The connection to the server localhost:8080 was refused - did you specify the right host or port?
+```
+
+The above error occurs because of the server not (yet) running.
+
+More ... 
