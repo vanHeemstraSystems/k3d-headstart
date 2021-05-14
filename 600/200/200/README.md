@@ -61,6 +61,7 @@ error: no context exists with the name: "k3d-dev"
 ```
 
 ***--- About kubeconfig ---***
+
 Source: https://rancher.com/learning-paths/how-to-manage-kubernetes-with-kubectl/
 
 In order to access your Kubernetes cluster, kubectl uses a configuration file. The default kubectl configuration file is located at ```~/.kube/config``` and is referred to as the kubeconfig file.
