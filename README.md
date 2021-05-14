@@ -24,7 +24,7 @@ See [README.md](./100/README.md)
 
 ## 200 - Requirements
 
-- Docker, see https://github.com/vanHeemstraSystems/docker-quick-start-headstart
+See [README.md](./200/README.md)
 
 ## 300 - Releases
 
