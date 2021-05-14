@@ -36,32 +36,11 @@ See [README.md](./400/README.md)
 
 ## 500 - Build
 
+See [README.md](./500/README.md)
+
 ## 600 - Usage
 
-Check out what you can do via k3d help or check the docs @ k3d.io
-
-Example Workflow: Create a new cluster and use it with kubectl
-
-1. k3d cluster create CLUSTER_NAME to create a new single-node cluster (= 1 container running k3s + 1 loadbalancer container)
-2. [Optional, included in cluster create] k3d kubeconfig merge CLUSTER_NAME --kubeconfig-switch-context to update your default kubeconfig and switch the current-context to the new one
-3. execute some commands like kubectl get pods --all-namespaces
-4. k3d cluster delete CLUSTER_NAME to delete the default cluster
-
-
-
-Create a simple kubernetes cluster on your local machine
-
-Create a multi-server (masters) and multi-agent (workers) kubernetes cluster on your local machine
-
-Create a cluster with a specific Kubernetes version
-
-How to replace the default CNI plugin of k3s
-
-How to replace the default ingress controller of k3s
-
-How to use a dedicated registry to download images with k3s
-
-What are the other Alternatives
+See [README.md](./600/README.md)
 
 ## 700 - Connect
 
@@ -72,6 +51,8 @@ What are the other Alternatives
 - [k3x](https://github.com/inercia/k3x): GUI (Linux) to k3d
 - [vscode-k3d](https://github.com/inercia/vscode-k3d): vscode plugin for k3d
 - [AbsaOSS/k3d-action](https://github.com/AbsaOSS/k3d-action): fully customizable GitHub Action to run lightweight Kubernetes clusters.
+
+What are the other Alternatives
 
 ## 1000 - Contributing
 
