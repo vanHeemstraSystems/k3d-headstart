@@ -28,6 +28,13 @@ Optionally, set the k3s image version to be used as an environment variable K3S_
 $ export K3S_VERSION=4
 ```
 
+Check it:
+
+```
+$ echo $K3S_VERSION
+4
+```
+
 Run docker-compose with a required randomized k3s token:
 
 ```
