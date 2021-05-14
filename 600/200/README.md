@@ -1,6 +1,6 @@
 # 200 - Create a simple kubernetes cluster on your local machine
 
-## 100 - with docker-compose (prefered)
+## 100 - with docker-compose (preferred)
 
 Let’s create a simple cluster with 1 loadbalancer and 1 node (with role of server and agent) with name “dev”:
 
