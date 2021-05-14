@@ -43,7 +43,7 @@ WARN[2021-05-14T14:07:54.750535974Z] Unable to read /etc/rancher/k3s/k3s.yaml, p
 error: error loading config file "/etc/rancher/k3s/k3s.yaml": open /etc/rancher/k3s/k3s.yaml: permission denied
 ```
 
-Change the permission of /etc/rancher/k3s/k3s.yaml:
+Change the permission of /etc/rancher/k3s/k3s.yaml (***note***: read ahead to find that below action is actually not required):
 
 ```
 $ cd /etc/rancher/k3s/
@@ -57,7 +57,77 @@ Now try again switching to the new context:
 
 ```
 $ kubectl config use-context k3d-dev
+error: no context exists with the name: "k3d-dev"
 ```
+
+***--- About kubeconfig ---***
+Source: https://rancher.com/learning-paths/how-to-manage-kubernetes-with-kubectl/
+
+In order to access your Kubernetes cluster, kubectl uses a configuration file. The default kubectl configuration file is located at ```~/.kube/config``` and is referred to as the kubeconfig file.
+
+kubeconfig files organize information about clusters, users, namespaces, and authentication mechanisms. The kubectl command uses these files to find the information it needs to choose a cluster and communicate with it.
+
+The loading order follows these rules:
+
+- If the --kubeconfig flag is set, then only the given file is loaded. The flag may only be set once and no merging takes place.
+- If the $KUBECONFIG environment variable is set, then it is parsed as a list of filesystem paths according to the normal path delimiting rules for your system.
+- Otherwise, the ${HOME}/.kube/config file is used and no merging takes place.
+- 
+If you see a message similar to the following, kubectl is not configured correctly or is not able to connect to a Kubernetes cluster.
+
+```The connection to the server <server-name: port> was refused - did you specify the right host or port?```
+
+***---***
+
+The content of ```~/.kube/config``` is as follows:
+
+```
+$ vi ~/.kube/config
+apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUJkekNDQVIyZ0F3SUJBZ0lCQURBS0JnZ3Foa2pPUFFRREFqQWpNU0V3SHdZRFZRUUREQmhyTTNNdGMyVnkKZG1WeUxXTmhRREUyTWpFd01EQTFPREl3SGhjTk1qRXdOVEUwTVRNMU5qSXlXaGNOTXpFd05URXlNVE0xTmpJeQpXakFqTVNFd0h3WURWUVFEREJock0zTXRjMlZ5ZG1WeUxXTmhRREUyTWpFd01EQTFPREl3V1RBVEJnY3Foa2pPClBRSUJCZ2dxaGtqT1BRTUJCd05DQUFScHZKNHU1cVlSS1ZFbE5zd3VpWTA4bGlmcDVzclZLL3RnMmN0SUNIL0QKNHZpNk94WGhqTExSdEkvaCtjTGVwajNjNVNWZGxsbFpMaEdlNzdYa2VMMDFvMEl3UURBT0JnTlZIUThCQWY4RQpCQU1DQXFRd0R3WURWUjBUQVFIL0JBVXdBd0VCL3pBZEJnTlZIUTRFRmdRVTg2OUR5cVFSTklOK0FDVytMeE1TCmVISTROK3N3Q2dZSUtvWkl6ajBFQXdJRFNBQXdSUUloQU5WZlJBOGF3TGRRQUd2WHRVSkxEVGZpOHd0blJ2czMKcC9wTlRnM1ZncjN5QWlBQ1pJQTQycy9DMGJ3T01WS1JaaHFKT0l1MG1hclBLL2tMam9PNi9DUExhUT09Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
+    server: https://0.0.0.0:33168
+  name: k3d-dev
+contexts:
+- context:
+    cluster: k3d-dev
+    user: admin@k3d-dev
+  name: k3d-dev
+current-context: k3d-dev
+kind: Config
+preferences: {}
+users:
+- name: admin@k3d-dev
+  user:
+    client-certificate-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUJrVENDQVRlZ0F3SUJBZ0lJS2U1ckJ5alhLbWd3Q2dZSUtvWkl6ajBFQXdJd0l6RWhNQjhHQTFVRUF3d1kKYXpOekxXTnNhV1Z1ZEMxallVQXhOakl4TURBd05UZ3lNQjRYRFRJeE1EVXhOREV6TlRZeU1sb1hEVEl5TURVeApOREV6TlRZeU1sb3dNREVYTUJVR0ExVUVDaE1PYzNsemRHVnRPbTFoYzNSbGNuTXhGVEFUQmdOVkJBTVRESE41CmMzUmxiVHBoWkcxcGJqQlpNQk1HQnlxR1NNNDlBZ0VHQ0NxR1NNNDlBd0VIQTBJQUJFd3hQVit6dHNyMDhic0YKTkl4V1VYdlRPUHFFUjQveTg0NFZHUVFHN0JEY3pWMVdqQytyYXZpbHZuS081ZkdtSkJnQnJTL0RxQ2w0cCtaYwpCOHp0bVh5alNEQkdNQTRHQTFVZER3RUIvd1FFQXdJRm9EQVRCZ05WSFNVRUREQUtCZ2dyQmdFRkJRY0RBakFmCkJnTlZIU01FR0RBV2dCUXpIQ0dsaXVRWTFJTlBmUHlKaytLQU1mZjNUREFLQmdncWhrak9QUVFEQWdOSUFEQkYKQWlFQXhDTFY1dzYwSER1eHdYY09RQXF1aDRjY0FRcStsR3p3Skw2T1E2dlA3YzBDSUVWYnpPVHJJZDF5RDIxbwpxaHdSR0RXTlhqSFRHN2pTREM2YXZ5ck9xdmc5Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0KLS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUJlRENDQVIyZ0F3SUJBZ0lCQURBS0JnZ3Foa2pPUFFRREFqQWpNU0V3SHdZRFZRUUREQmhyTTNNdFkyeHAKWlc1MExXTmhRREUyTWpFd01EQTFPREl3SGhjTk1qRXdOVEUwTVRNMU5qSXlXaGNOTXpFd05URXlNVE0xTmpJeQpXakFqTVNFd0h3WURWUVFEREJock0zTXRZMnhwWlc1MExXTmhRREUyTWpFd01EQTFPREl3V1RBVEJnY3Foa2pPClBRSUJCZ2dxaGtqT1BRTUJCd05DQUFTSHQ4dXVJS0IvQ3BNRU9WNEFCUWZHL2JNR0pmS2JlQllnek8wRTN6bzIKQ3VSL1ZjYVRDV0FTelhoc1E0QTJmeWJDSUUyWE1ESGhjRmZlOWl1dGtsNUlvMEl3UURBT0JnTlZIUThCQWY4RQpCQU1DQXFRd0R3WURWUjBUQVFIL0JBVXdBd0VCL3pBZEJnTlZIUTRFRmdRVU14d2hwWXJrR05TRFQzejhpWlBpCmdESDM5MHd3Q2dZSUtvWkl6ajBFQXdJRFNRQXdSZ0loQUxWY2gyb2JpeXVNSDJCcG9DeDRCL0ZRbnc1YlpKWkMKUXZFZ1B3dDFGUEZRQWlFQWpJbHlCZkp4Nk5EaU03dFVId2JPOWRlaWFoeTMrVWcyb2M2YW1jWXhhSVE9Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
+    client-key-data: LS0tLS1CRUdJTiBFQyBQUklWQVRFIEtFWS0tLS0tCk1IY0NBUUVFSUJ6TjB2aWNIZVRtWTZiNnVrZHdja3VDeUVFcG9mSFdtOUNiaUFYYkpmOXVvQW9HQ0NxR1NNNDkKQXdFSG9VUURRZ0FFVERFOVg3TzJ5dlR4dXdVMGpGWlJlOU00K29SSGovTHpqaFVaQkFic0VOek5YVmFNTDZ0cQorS1crY283bDhhWWtHQUd0TDhPb0tYaW41bHdIek8yWmZBPT0KLS0tLS1FTkQgRUMgUFJJVkFURSBLRVktLS0tLQo=
+```
+
+You can see from above config file that the context 'k3s-dev' is known and that it is the current context:
+
+```
+...
+contexts:
+- context:
+    cluster: k3d-dev
+    user: admin@k3d-dev
+  name: k3d-dev
+current-context: k3d-dev
+...
+```
+~/.kube/config
+
+In sum, we must set the kubectl config command to look for ```~/.kube/config```, not ```/etc/rancher/k3s/k3s.yaml```
+
+Now try again switching to the new context, with the ```--kubeconfig``` flag set to ```~/.kube/config```:
+
+```
+$ kubectl config use-context k3d-dev --kubeconfig ${HOME}/.kube/config
+Switched to context "k3d-dev".
+```
+
+Success!!
 
 Next, get the cluster info:
 
