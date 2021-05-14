@@ -4,6 +4,8 @@
 
 Let’s create a simple cluster with 1 loadbalancer and 1 node (with role of server and agent) with name “dev”:
 
+First, check any running Docker processes:
+
 ```
 $ cd containers/k3s/
 $ docker ps
