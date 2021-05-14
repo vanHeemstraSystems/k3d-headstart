@@ -25,7 +25,7 @@ k3s version v1.20.6-k3s1 (default)
 Optionally, set the k3s image version to be used as an environment variable K3S_VERSION (as it will be used in Dockerfile):
 
 ```
-$ K3S_VERSION=4
+$ export K3S_VERSION=4
 ```
 
 Run docker-compose with a required randomized k3s token:
