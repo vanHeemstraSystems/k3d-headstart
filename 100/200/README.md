@@ -2,8 +2,7 @@
 
 In one year, the k3d team did a great job and completely rewrote k3d v3. It is therefore not a simple major version, they have implemented new concepts and structures to make it an evolving tool with very practical and interesting features.
 
-- New terminology of k3d and k3s:
-- -- To be as inclusive to the community as possible, "Server" and "Agent" words are now used to design "master" and "worker" node.
+- New terminology of k3d and k3s: \n To be as inclusive to the community as possible, "Server" and "Agent" words are now used to design "master" and "worker" node.
 
 - Every cluster you create will now spawn at least 2 containers: 1 load balancer and 1 “server” node.
 - -- The load balancer will be the access point to the Kubernetes API, so even for multi-server clusters, you only need to expose a single api port. The load balancer will then take care of proxying your requests to the correct server node. (can be disabled with the --no-lb flag)
