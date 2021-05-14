@@ -1,4 +1,14 @@
-# 100 - Try an example workflow
+# 100 - Install the Kubernetes Dashboard and try an example workflow
+
+## 100 - Install the Kubernetes Dashboard
+
+See [README.md](./100/README.md)
+
+Based on "" at https://rancher.com/docs/k3s/latest/en/installation/kube-dashboard/
+
+## 200 - Try an example workflow
+
+See [README.md](./200/README.md)
 
 Example Workflow: Create a new cluster and use it with kubectl
 
