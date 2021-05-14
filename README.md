@@ -30,13 +30,9 @@ See [README.md](./100/README.md)
 
 See [README.md](./300/README.md)
 
-## 400 - Get
+## 400 - Get & Install
 
-Use the install script to grab the latest release:
-
-```
-curl -s https://raw.githubusercontent.com/rancher/k3d/main/install.sh | bash
-```
+See [README.md](./400/README.md)
 
 ## 500 - Build
 
