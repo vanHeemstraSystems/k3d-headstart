@@ -147,7 +147,7 @@ $ k3d cluster list
 NAME   SERVERS   AGENTS   LOADBALANCER
 ```
 
-Hence, no clusters have yet been created.
+Hence, no clusters have yet been created/are running.
 
 Check which docker images got downloaded and created:
 
@@ -158,6 +158,9 @@ k3s_server    latest    a7abdf1941d5   2 weeks ago    172MB
 rancher/k3s   latest    a7abdf1941d5   2 weeks ago    172MB
 k3s_agent     latest    a7abdf1941d5   2 weeks ago    172MB
 ```
+
+Check the current status with the previoulsy installed [Kubernetes Dashboard](https://github.com/vanHeemstraSystems/k3d-headstart/blob/main/600/100/100/README.md):
+
 
 more ...
 
@@ -173,5 +176,7 @@ Let’s create a simple cluster with 1 loadbalancer and 1 node (with role of ser
 $ docker ps
 
 ```
+
+Check the current status with the previoulsy installed [Kubernetes Dashboard](https://github.com/vanHeemstraSystems/k3d-headstart/blob/main/600/100/100/README.md):
 
 more ...
