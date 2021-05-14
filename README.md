@@ -36,6 +36,8 @@ See [README.md](./400/README.md)
 
 ## 500 - Build
 
+See [README.md](./500/README.md)
+
 ## 600 - Usage
 
 Check out what you can do via k3d help or check the docs @ k3d.io
