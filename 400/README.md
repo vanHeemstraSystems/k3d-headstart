@@ -4,7 +4,11 @@
 Use the install script to grab the latest release:
 
 ```
-curl -s https://raw.githubusercontent.com/rancher/k3d/main/install.sh | bash
+$ curl -s https://raw.githubusercontent.com/rancher/k3d/main/install.sh | bash
+Preparing to install k3d into /usr/local/bin
+[sudo] password for cloud_user: 
+k3d installed into /usr/local/bin/k3d
+Run 'k3d --help' to see what you can do with it.
 ```
 
 You have several more options there:
