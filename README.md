@@ -3,6 +3,8 @@ k3d-headstart
 
 Based on "k3d" at https://github.com/rancher/k3d
 
+Based on "K3S + K3D = K8S : a new perfect match for dev and test" at https://www-sokube-ch.cdn.ampproject.org/c/s/www.sokube.ch/amp/k3s-k3d-k8s-a-new-perfect-match-for-dev-and-test
+
 k3d creates containerized k3s clusters. 
 
 This means, that you can spin up a multi-node k3s cluster on a single machine using docker.
@@ -17,6 +19,8 @@ See also https://github.com/vanHeemstraSystems/k3s-dind-headstart
 
 - [Rancher Meetup - May 2020 - Simplifying Your Cloud-Native Development Workflow With K3s, K3c and K3d (YouTube)](https://www.youtube.com/watch?v=hMr3prm9gDM)
 - - k3d demo repository: [iwilltry42/k3d-demo](https://github.com/iwilltry42/k3d-demo)
+
+See [README.md](./100/README.md)
 
 ## 200 - Requirements
 
@@ -44,6 +48,22 @@ Example Workflow: Create a new cluster and use it with kubectl
 2. [Optional, included in cluster create] k3d kubeconfig merge CLUSTER_NAME --kubeconfig-switch-context to update your default kubeconfig and switch the current-context to the new one
 3. execute some commands like kubectl get pods --all-namespaces
 4. k3d cluster delete CLUSTER_NAME to delete the default cluster
+
+
+
+Create a simple kubernetes cluster on your local machine
+
+Create a multi-server (masters) and multi-agent (workers) kubernetes cluster on your local machine
+
+Create a cluster with a specific Kubernetes version
+
+How to replace the default CNI plugin of k3s
+
+How to replace the default ingress controller of k3s
+
+How to use a dedicated registry to download images with k3s
+
+What are the other Alternatives
 
 ## 700 - Connect
 
