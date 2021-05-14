@@ -5,6 +5,10 @@
 
 ## 100 - k3s
 
+### What is k3s?
+
+- K3s is a lightweight, CNCF-certified Kubernetes distribution and Sandbox project. Designed for low-resource environments, K3s is distributed as a single binary that uses under 512MB of RAM. To learn more about K3s, head over to the [documentation](https://rancher.com/docs/k3s/latest/en/) or check out this [blog post](https://rancher.com/blog/2019/2019-02-26-introducing-k3s-the-lightweight-kubernetes-distribution-built-for-the-edge/) or [video](https://www.youtube.com/watch?v=hMr3prm9gDM). 
+
 K3s includes:
 
 - [Flannel](https://github.com/coreos/flannel#flannel): a very simple L2 overlay network that satisfies the Kubernetes requirements. This is a [CNI plugin](https://github.com/containernetworking/cni#3rd-party-plugins) (Container Network Interface), such as [Calico](http://docs.projectcalico.org/), [Romana](http://romana.io/), [Weave-net](https://www.weave.works/products/weave-net/).
@@ -29,7 +33,7 @@ Recently k3s has joined the [Cloud Native Computing Foundation](https://sokube.a
 
 ### What is k3d?
 
-- k3d is a small program made for running a [K3s](https://k3s.io/) cluster in Docker. K3s is a lightweight, CNCF-certified Kubernetes distribution and Sandbox project. Designed for low-resource environments, K3s is distributed as a single binary that uses under 512MB of RAM. To learn more about K3s, head over to the [documentation](https://rancher.com/docs/k3s/latest/en/) or check out this [blog post](https://rancher.com/blog/2019/2019-02-26-introducing-k3s-the-lightweight-kubernetes-distribution-built-for-the-edge/) or [video](https://www.youtube.com/watch?v=hMr3prm9gDM). 
+- k3d is a small program made for running a [K3s](https://k3s.io/) cluster in Docker. 
 
 - k3d uses a [Docker image](https://hub.docker.com/r/rancher/k3s/tags) built from the [K3s repository](https://github.com/rancher/k3s) to spin up multiple K3s nodes in Docker containers on any machine with Docker installed. That way, a single physical (or virtual) machine (let’s call it Docker Host) can run multiple K3s clusters, with multiple server and agent nodes each, simultaneously.
 
