@@ -194,11 +194,22 @@ $ k3d kubeconfig merge ...
 
 Stopping a cluster is very easy:
 
-```$ k3d cluster stop dev```
+```
+$ k3d cluster stop dev
+INFO[0000] Stopping cluster 'dev'  
+```
 
 Then Restarting and restoring the state of the cluster as it was before stopping:
 
-```$ k3d cluster start dev```
+```
+$ k3d cluster start dev
+INFO[0000] Starting cluster 'dev'                       
+INFO[0000] Starting servers...                          
+INFO[0000] Starting Node 'k3d-dev-server-0'             
+INFO[0029] Starting agents...                           
+INFO[0029] Starting helpers...                          
+INFO[0029] Starting Node 'k3d-dev-serverlb' 
+```
 
 Deleting a cluster is as simple as:
 
@@ -210,17 +221,24 @@ Once the cluster running, execute the following commands to test with a simple n
 
 ```
 $ kubectl create deployment nginx --image=nginx
+deployment.apps/nginx created
 ```
 
 ```
 $ kubectl create service clusterip nginx --tcp=80:80
+service/nginx created
 ```
 
-
-
-To test, browse to:
+To test, browse to (will not show a page yet as there is no site yet, but NGinX is running):
 
 ```http://localhost:8080/```
+
+Alternatively (will not show a page yet as there is no site yet, but NGinX is running):
+
+```
+$ curl -I -L localhost:8080
+curl: (52) Empty reply from server
+```
 ___
 
 Check the current status with the previously installed [Kubernetes Dashboard](https://github.com/vanHeemstraSystems/k3d-headstart/blob/main/600/100/100/README.md):
