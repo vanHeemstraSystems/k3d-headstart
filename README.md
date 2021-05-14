@@ -42,24 +42,6 @@ See [README.md](./500/README.md)
 
 See [README.md](./600/README.md)
 
-Check out what you can do via k3d help or check the docs @ k3d.io
-
-Try an example workflow
-
-Create a simple kubernetes cluster on your local machine
-
-Create a multi-server (masters) and multi-agent (workers) kubernetes cluster on your local machine
-
-Create a cluster with a specific Kubernetes version
-
-How to replace the default CNI plugin of k3s
-
-How to replace the default ingress controller of k3s
-
-How to use a dedicated registry to download images with k3s
-
-What are the other Alternatives
-
 ## 700 - Connect
 
 ## 800 - History
@@ -69,6 +51,8 @@ What are the other Alternatives
 - [k3x](https://github.com/inercia/k3x): GUI (Linux) to k3d
 - [vscode-k3d](https://github.com/inercia/vscode-k3d): vscode plugin for k3d
 - [AbsaOSS/k3d-action](https://github.com/AbsaOSS/k3d-action): fully customizable GitHub Action to run lightweight Kubernetes clusters.
+
+What are the other Alternatives
 
 ## 1000 - Contributing
 
