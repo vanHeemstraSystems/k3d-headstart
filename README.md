@@ -1,19 +1,19 @@
 k3d-headstart
 # k3d - Headstart
 
-Based on "k3d" at https://github.com/rancher/k3d
+- Based on "k3d" at https://github.com/rancher/k3d
 
-Based on "K3S + K3D = K8S : a new perfect match for dev and test" at https://www-sokube-ch.cdn.ampproject.org/c/s/www.sokube.ch/amp/k3s-k3d-k8s-a-new-perfect-match-for-dev-and-test
+- Based on "K3S + K3D = K8S : a new perfect match for dev and test" at https://www-sokube-ch.cdn.ampproject.org/c/s/www.sokube.ch/amp/k3s-k3d-k8s-a-new-perfect-match-for-dev-and-test
 
-Based on "Introduction to k3d: Run K3s in Docker" at https://www.suse.com/c/introduction-k3d-run-k3s-docker-src/
+- Based on "Introduction to k3d: Run K3s in Docker" at https://www.suse.com/c/introduction-k3d-run-k3s-docker-src/
 
-k3d creates containerized k3s clusters. 
+In short:
 
-This means, that you can spin up a multi-node k3s cluster on a single machine using docker.
+- k3d creates containerized k3s clusters. This means, that you can spin up a multi-node k3s cluster on a single machine using docker.
 
 ***Note***: k3s is the lightweight Kubernetes distribution by Rancher: rancher/k3s 
 
-See also https://github.com/vanHeemstraSystems/k3s-dind-headstart
+See also "k3s - Docker in Docker (dind)" at https://github.com/vanHeemstraSystems/k3s-dind-headstart
 
 ## 100 - Learning
 
