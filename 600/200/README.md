@@ -12,6 +12,14 @@ $ docker ps
 CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
 ```
 
+Check the k3d and k3s versions installed (***note*** that you cannot just ask for the k3s version, it is included with k3d version command):
+
+```
+$ k3d version
+k3d version v4.4.3
+k3s version v1.20.6-k3s1 (default)
+```
+
 Optionally, set the k3s image version to be used as an environment variable K3S_VERSION (as it will be used in Dockerfile):
 
 ```
@@ -106,6 +114,16 @@ NAME   SERVERS   AGENTS   LOADBALANCER
 ```
 
 Hence, no clusters have yet been created.
+
+Check which docker images got downloaded and created:
+
+```
+$ docker images
+REPOSITORY    TAG       IMAGE ID       CREATED        SIZE
+k3s_server    latest    a7abdf1941d5   2 weeks ago    172MB
+rancher/k3s   latest    a7abdf1941d5   2 weeks ago    172MB
+k3s_agent     latest    a7abdf1941d5   2 weeks ago    172MB
+```
 
 more ...
 
