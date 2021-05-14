@@ -2,7 +2,7 @@
 
 ## 100 - with docker-compose (prefered)
 
-Let’s create a simple cluster with 1 loadbalancer and 1 node (with role of server and agent) with name “???”:
+Let’s create a simple cluster with 1 loadbalancer and 1 node (with role of server and agent) with name “dev”:
 
 ```
 $ cd containers/k3s/
@@ -68,6 +68,45 @@ CONTAINER ID   IMAGE        COMMAND             CREATED         STATUS         P
 
 Success!!
 
+See which options (commands and flags) the k3d cluster command has:
+
+```
+$ k3d cluster --help
+Manage cluster(s)
+
+Usage:
+  k3d cluster [flags]
+  k3d cluster [command]
+
+Available Commands:
+  create      Create a new cluster
+  delete      Delete cluster(s).
+  list        List cluster(s)
+  start       Start existing k3d cluster(s)
+  stop        Stop existing k3d cluster(s)
+
+Flags:
+  -h, --help   help for cluster
+
+Global Flags:
+      --timestamps   Enable Log timestamps
+      --trace        Enable super verbose output (trace logging)
+      --verbose      Enable verbose output (debug logging)
+
+Use "k3d cluster [command] --help" for more information about a command.
+```
+
+Let's use the following command to list the cluster(s) we have created:
+
+```
+$ k3d cluster list
+NAME   SERVERS   AGENTS   LOADBALANCER
+```
+
+Hence, no clusters have yet been created.
+
+more ...
+
 ## 200 - without docker-compose
 
 Let’s create a simple cluster with 1 loadbalancer and 1 node (with role of server and agent) with name “dev”:
@@ -80,3 +119,5 @@ Let’s create a simple cluster with 1 loadbalancer and 1 node (with role of ser
 $ docker ps
 
 ```
+
+more ...
