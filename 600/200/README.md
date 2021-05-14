@@ -2,6 +2,8 @@
 
 ## 100 - with docker-compose (preferred)
 
+See also https://rancher.com/docs/k3s/latest/en/advanced/#running-k3d-k3s-in-docker-and-docker-compose
+
 Let’s create a simple cluster with 1 loadbalancer and 1 node (with role of server and agent) with name “dev”:
 
 First, check any running Docker processes:
