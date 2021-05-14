@@ -1,7 +1,7 @@
 # 100 - What is k3d/k3s
 
 - ***[k3s](https://rancher.com/docs/k3s/latest/en/)*** is a very efficient and lightweight fully compliant Kubernetes distribution.
-- ***[k3d](https://k3d.io/)*** is a utility designed to easily run k3s in Docker, it provides a simple CLI to create, run, delete a fully compliance Kubernetes cluster with 1 to n nodes.
+- ***[k3d](https://k3d.io/)*** is a utility designed to easily run k3s in Docker. It provides a simple CLI to create, run, delete a fully compliance Kubernetes cluster with 1 to n nodes.
 
 K3s includes:
 
