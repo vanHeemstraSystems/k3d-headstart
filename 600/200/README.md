@@ -80,6 +80,38 @@ CONTAINER ID   IMAGE        COMMAND             CREATED         STATUS         P
 
 Success!!
 
+The kubeconfig.yaml file is written to the curent directory:
+
+```
+$ pwd
+/home/cloud_user/git/k3d-headstart/containers/k3s
+$ ls -la
+-rw-rw-rw-. 1 root       root       2961 May 14 08:36 kubeconfig.yaml
+```
+
+See the content of kubeconfig.yaml:
+
+```
+$ vi kubeconfig.yaml
+apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUJkekNDQVIyZ0F3SUJBZ0lCQURBS0JnZ3Foa2pPUFFRREFqQWpNU0V3SHdZRFZRUUREQmhyTTNNdGMyVnkKZG1WeUxXTmhRREUyTWpBNU9ERXpPVGt3SGhjTk1qRXdOVEUwTURnek5qTTVXaGNOTXpFd05URXlNRGd6TmpNNQpXakFqTVNFd0h3WURWUVFEREJock0zTXRjMlZ5ZG1WeUxXTmhRREUyTWpBNU9ERXpPVGt3V1RBVEJnY3Foa2pPClBRSUJCZ2dxaGtqT1BRTUJCd05DQUFUbW5tM2xqaERJdkpubXhQd2JoL3dRVVVlR1g5dm5KSWZSbUdTSU9WRzkKY0VEb3ZyaGFPRFdwWEI0WUZUYUZFWEFyQ0IwSjBVOTd5TzZyQldIeUJ6U3NvMEl3UURBT0JnTlZIUThCQWY4RQpCQU1DQXFRd0R3WURWUjBUQVFIL0JBVXdBd0VCL3pBZEJnTlZIUTRFRmdRVVdBYzJYSE5YVGxlSWRwdkczYnNvClM2bXRXQU13Q2dZSUtvWkl6ajBFQXdJRFNBQXdSUUloQU1pWGpXZFJaZnZMUkkyZGhPQnVCdVczaUh3dElyRkwKYTgzenFERTV5c0NGQWlBVklHcUd1eVhOUjNyT0hFY1czVUVwYW9iY2lYeVVHVHptVDN3eHd5enVUUT09Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
+    server: https://127.0.0.1:6443
+  name: default
+contexts:
+- context:
+    cluster: default
+    user: default
+  name: default
+current-context: default
+kind: Config
+preferences: {}
+users:
+- name: default
+  user:
+```
+
 See which options (commands and flags) the k3d cluster command has:
 
 ```
