@@ -140,10 +140,88 @@ Metrics-server is running at https://127.0.0.1:6443/api/v1/namespaces/kube-syste
 To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
 ```
 
+Validate the Docker processes:
+
+```
+$ docker ps
+CONTAINER ID   IMAGE                      COMMAND                  CREATED          STATUS          PORTS                                                                                                     NAMES
+69096ab4a139   rancher/k3d-proxy:v4.4.3   "/bin/sh -c nginx-pr…"   52 minutes ago   Up 50 minutes   0.0.0.0:8080->80/tcp, :::8080->80/tcp, 0.0.0.0:8443->443/tcp, :::8443->443/tcp, 0.0.0.0:33168->6443/tcp   k3d-dev-serverlb
+6a6b7776b5de   rancher/k3s:v1.20.6-k3s1   "/bin/k3s server --t…"   52 minutes ago   Up 52 minutes                                                                                                             k3d-dev-server-0
+```
+
 The current cluster looks like in below picture:
 
 ![k3s-dev-img-63848328462834632](https://user-images.githubusercontent.com/12828104/118288400-b18ff480-b4d4-11eb-9c10-64b7a2465603.png)
 
-Check the current status with the previoulsy installed [Kubernetes Dashboard](https://github.com/vanHeemstraSystems/k3d-headstart/blob/main/600/100/100/README.md):
+## Port Mappings
+
+- ```--port 8080:80@loadbalancer``` will add a mapping of local host port 8080 to loadbalancer port 80, which will proxy requests to port 80 on all agent nodes
+
+- ```--api-port 6443``` : by default, no API-Port is exposed (no host port mapping).
+ It’s used to have k3s‘s API-Server listening on port 6443 with that port mapped to the host system. So that the load balancer will be the access point to the Kubernetes API, so even for multi-server clusters, you only need to expose a single api port. The load balancer will then take care of proxying your requests to the appropriate server node.
+
+- ```-p "32000-32767:32000-32767@loadbalancer"```
+ You may as well expose a NodePort range (if you want to avoid the Ingress Controller).
+
+## Kubeconfig
+
+- By default it will directly switch the default kubeconfig's current-context to the new cluster's context so that your ```~/.kube/config``` is automatically updated. You can check it with ```$ kubectl config current-context```
+
+- You can disable this behaviour by using flag ```--update-default-kubeconfig=false```, so it will need to create a kubeconfig file and export the KUBECONFIG var as follows:
+
+```
+$ export KUBECONFIG=$(k3d kubeconfig write dev)
+```
+
+- Removing the cluster will also delete the entry in the kubeconfig file.
+
+- k3d provides some commands to easily manipulate the kubeconfig, as follows:
+
+```
+# get kubeconfig from cluster dev
+$ k3d kubeconfig get dev
+ 
+# create a kubeconfig file in $HOME/.k3d/kubeconfig-dev.yaml 
+$ k3d kubeconfig write dev
+ 
+# get kubeconfig from cluster(s) and
+# merge it/them into a file in $HOME/.k3d or another file
+$ k3d kubeconfig merge ...
+```
+
+## Lifecycle
+
+Stopping a cluster is very easy:
+
+```$ k3d cluster stop dev```
+
+Then Restarting and restoring the state of the cluster as it was before stopping:
+
+```$ k3d cluster start dev```
+
+Deleting a cluster is as simple as:
+
+```$ k3d cluster delete dev```
+
+## Test with a simple nginx container application
+
+Once the cluster running, execute the following commands to test with a simple nginx container:
+
+```
+$ kubectl create deployment nginx --image=nginx
+```
+
+```
+$ kubectl create service clusterip nginx --tcp=80:80
+```
+
+
+
+To test, browse to:
+
+```http://localhost:8080/```
+___
+
+Check the current status with the previously installed [Kubernetes Dashboard](https://github.com/vanHeemstraSystems/k3d-headstart/blob/main/600/100/100/README.md):
 
 more ...
