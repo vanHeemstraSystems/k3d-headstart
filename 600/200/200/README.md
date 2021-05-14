@@ -140,6 +140,10 @@ Metrics-server is running at https://127.0.0.1:6443/api/v1/namespaces/kube-syste
 To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
 ```
 
+The current cluster looks like in below picture:
+
+![k3s-dev-img-63848328462834632](https://user-images.githubusercontent.com/12828104/118288400-b18ff480-b4d4-11eb-9c10-64b7a2465603.png)
+
 Check the current status with the previoulsy installed [Kubernetes Dashboard](https://github.com/vanHeemstraSystems/k3d-headstart/blob/main/600/100/100/README.md):
 
 more ...
