@@ -235,6 +235,8 @@ To test, browse to (will not show a page yet as there is no site yet, but NGinX 
 
 Alternatively (will not show a page yet as there is no site yet, but NGinX is running):
 
+Source: https://serverfault.com/questions/716180/how-to-access-web-page-via-terminal/893987
+
 ```
 $ curl -I -L localhost:8080
 curl: (52) Empty reply from server
