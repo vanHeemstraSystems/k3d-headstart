@@ -15,6 +15,8 @@ In short:
 
 See also "k3s - Docker in Docker (dind)" at https://github.com/vanHeemstraSystems/k3s-dind-headstart
 
+See also "K3d - How to run Kubernetes cluster locally using Rancher K3s" at https://www.youtube.com/watch?v=mCesuGk-Fks
+
 ## 100 - Learning
 
 - Website with documentation: [k3d.io](https://k3d.io/)
