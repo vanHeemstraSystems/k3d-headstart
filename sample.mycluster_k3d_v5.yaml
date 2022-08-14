@@ -1,0 +1,69 @@
+# k3d configuration file, saved as e.g. ${PWD}/mycluster.yaml
+# See https://k3d.io/v5.4.4/usage/configfile/
+# and https://github.com/k3d-io/k3d/tree/main/pkg/config/v1alpha4
+apiVersion: k3d.io/v1alpha4  # this will change in the future as we make everything more stable
+kind: Simple  # internally, we also have a Cluster config, which is not yet available externally
+metadata: 
+  name: mycluster # name that you want to give to your cluster (will still be prefixed with `k3d-`)
+# servers: 1
+# agents: 2
+registries:
+  create:
+    name: local_registry
+    host: "0.0.0.0"
+    hostPort: "5000"
+  use:
+    - k3d-registry.localhost:5000
+  config: |
+    mirrors:
+      "k3d-registry.localhost:5000":
+         endpoint:
+           - http://k3d-registry.localhost:5000
+# kubeAPI:
+#  host: 
+#  hostIP: 
+#  hostPort:
+image: my-docker-shared-images.my-artifactory.my-company.com/rancher/k3s:v1.23.8-k3s1
+# network: 
+# subnet: 
+# token: 
+volumes:
+  - volume: /home/${USER}/git/k3d-headstart/registries.yaml:/etc/rancher/k3s/registries.yaml
+    nodeFilters:
+      - all
+# ports: 
+# - port:
+#   nodeFilters:
+# options:
+#   k3d: 
+#     wait: true
+#     timeout: 1m
+#     disableLoadbalancer: false
+#     disableImageVolume: false
+#     disableRollback: false
+#     loadbalancer:
+#       configOverrides:
+#         - settings.workerConnections=2048
+#         - settings.defaultProxyTimeout=900
+#   k3s:
+#     extraArgs:
+#       - arg: --tls-san=127.0.0.1
+#         nodeFilters:
+#           - all
+#       - arg: --disable=traefik
+#         nodeFilters:
+#           - all
+# kubeconfig:
+#   updateDefaultKubeconfig: true
+#   switchCurrentContext: true
+# runtime:
+env:
+  - envVar: HTTP_PROXY=http://PROXY_USER:PROXY_PASSWORD@my-proxy.my-company.com:8080 # Replace PROXY_USER and PROXY_PASSWORD
+    nodeFilters:
+      - all
+  - envVar: HTTPS_PROXY=http://PROXY_USER:PROXY_PASSWORD@my-proxy.my-company.com:8080 # Replace PROXY_USER and PROXY_PASSWORD
+    nodeFilters:
+      - all
+  - envVar: NO_PROXY=localhost,127.0.0.1,::1
+    nodeFilters:
+      - all  
