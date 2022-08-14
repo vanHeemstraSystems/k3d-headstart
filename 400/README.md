@@ -55,7 +55,7 @@ $ k3s version v1.23.8-k3s1 (default)
 
 Hooray, you are ready for the next part!
 
-# 200 - Install
+## 200 - Install
 Installation is very easy and available through many installers: wget, curl, Homebrew, Aur, … and supports all well known OSes (linux, darwin, windows) and processor architectures (386, amd64) !
 
 ### Several installation options
