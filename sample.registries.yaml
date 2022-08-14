@@ -1,0 +1,33 @@
+mirrors:
+  "docker.io": 
+    endpoint:
+      - http://k3d-docker-io:5001
+  "k3d-registry.localhost:5000":
+    endpoint:
+      - http://k3d-registry.localhost:5000
+  ghcr.io:
+    endpoint:
+      - http://my-ghcr-shared-images.my-artifactory.my-company.com      
+  my-ghcr-shared-images.my-artifactory.my-company.com:
+    endpoint:
+      - http://my-ghcr-shared-images.my-artifactory.my-company.com      
+  my-docker-shared-images.my-artifactory.my-company.com:
+    endpoint:
+      - http://my-docker-shared-images.my-artifactory.my-company.com
+configs:
+  "k3d-registry.localhost:5000":
+    auth:
+      username: == Use the username used to login to local registry k3d-registry.localhost:5000 ==
+      password: == Find the base64encoded password in /home/${USER}/.docker/config.json after login to local registry k3d-registry.localhost:5000 ==      
+  ghcr.io:
+    auth:
+      username: == GitHub e-mail address ==
+      password: == GitHub Personal Access Token (PAT) ==
+  my-ghcr-shared-images.my-artifactory.my-company.com:
+    auth:
+      username: == GitHub e-mail address ==
+      password: == GitHub Personal Access Token (PAT) ==
+  my-docker-shared-images.my-artifactory.my-company.com:
+    auth:
+      username: my-proxy-username
+      password: == ASK A TRUSTED PARTY FOR THE PASSWORD ==
