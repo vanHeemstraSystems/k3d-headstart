@@ -1,5 +1,7 @@
 # 400 - Get & Install
 
+**HIGHLY RECOMMENDED READING**: "Docker and Proxy" at https://medium.com/@bennyh/docker-and-proxy-88148a3f35f7
+
 ## 100 - Get
 
 Use the install script to grab the latest release:
